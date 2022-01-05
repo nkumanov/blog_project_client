@@ -24,7 +24,7 @@ function App() {
         <Route path='/' element={<MainContent />} />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
-        
+        <Route path='/bookmarks' element={<Bookmarks />} />
         <Route path='/register' element={<Register />} />
         <Route path='/blog/:blogId' element={<Detail />} />
         <Route path='/blogs/category/:category' element={<CategoryBlogs />} />

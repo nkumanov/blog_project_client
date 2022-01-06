@@ -252,6 +252,7 @@ a{
     background: transparent;
     cursor: pointer;
     color: black;
+    margin-right: 6px;
 }
 .author{
     display: flex;

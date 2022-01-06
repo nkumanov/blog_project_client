@@ -1,7 +1,9 @@
 
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 export default function Detail() {
     let { blogId } = useParams();
     const [blog, setBlog] = useState({});
@@ -10,7 +12,21 @@ export default function Detail() {
         fetch(`http://localhost:5000/blogs/${blogId}`).then(res => res.json()).then(data => setBlog(data));
 
     }, []);
-    
+    const cookie = new Cookies();
+    const navigate = useNavigate();
+    const addBookmark = () => {
+        if(cookie.get('userData')){
+            fetch(`http://localhost:5000/user/bookmark/${blogId}`, {
+                method: 'PATCH',
+                headers: { "Content-Type": "application/json", 'X-Authorization': cookie.get('userData') },
+                
+            });
+        }else{
+            navigate('/login');
+            return;
+        }
+        
+    }
     return (
         <div className="row row-form-content">
             <div className="wrapper">
@@ -30,11 +46,11 @@ export default function Detail() {
                                 <span>{blog.readTime} {blog.readTime > 1 ? 'minutes' : 'minute'} read</span>
                             </div>
                             <div className="right-side">
-                                <a className="bookmark" href=""><i className="fab fa-facebook-square"></i></a>
-                                <a className="bookmark" href=""><i className="fab fa-twitter-square"></i></a>
+                                <Link className="bookmark" to=""><i className="fab fa-facebook-square"></i></Link>
+                                <Link className="bookmark" to=""><i className="fab fa-twitter-square"></i></Link>
 
-                                <a className="bookmark" href=""><i className="fab fa-linkedin"></i></a>
-                                <a className="bookmark" href=""><i className="far fa-bookmark"></i></a>
+                                <Link className="bookmark" to=""><i className="fab fa-linkedin"></i></Link>
+                                <button className="bookmark" onClick={addBookmark} to=""><i className="far fa-bookmark"></i></button>
 
                             </div>
                         </article>

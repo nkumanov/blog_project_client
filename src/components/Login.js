@@ -18,8 +18,8 @@ export default function Login() {
         };
         
 
-        const user = { email: username, password: password }
-        let token = ''
+        const user = { email: username, password: password };
+        let token = '';
         const cookies = new Cookies();
         try {
             let response = await fetch('http://localhost:5000/auth/login', {

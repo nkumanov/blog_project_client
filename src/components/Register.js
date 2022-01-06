@@ -13,7 +13,7 @@ export default function Register() {
     const navigate = useNavigate();
     const cookies = new Cookies();
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/g
 
@@ -52,7 +52,7 @@ export default function Register() {
                 method: "POST",
                 body: JSON.stringify(user),
                 headers: { 'Content-Type': "application/json" }
-            })
+            });
             if (response.status >= 200 && response.status < 300) {
                 
                 token = await response.json();

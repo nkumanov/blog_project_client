@@ -9,7 +9,7 @@ export default function Detail() {
     useEffect(() => {
         fetch(`http://localhost:5000/blogs/${blogId}`).then(res => res.json()).then(data => setBlog(data));
 
-    }, [])
+    }, []);
     
     return (
         <div className="row row-form-content">

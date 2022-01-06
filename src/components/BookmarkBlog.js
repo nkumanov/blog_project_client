@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import { Routes, Route, Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 export default function Blog(props) {
-    const cookie = new Cookies()
+    const cookie = new Cookies();
     const navigate = useNavigate();
 
     const removeBookmark = () => {
@@ -15,7 +15,7 @@ export default function Blog(props) {
 
             })
 
-            props.setChanger()
+            props.setChanger();
         } else {
             navigate('/login');
             return;

@@ -9,7 +9,7 @@ export default function CategoryBlogs() {
     useEffect(() => {
         fetch(`http://localhost:5000/blogs/category/${category}`).then(res => res.json()).then(data => setBlogs(data))
 
-    }, [category])
+    }, [category]);
     
     return (
         <div className="row row-main-content">

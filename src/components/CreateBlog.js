@@ -1,10 +1,10 @@
 import React from 'react'
-import {Route, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie';
 export default function CreateBlog() {
 
-    
+
     let [title, setTitle] = useState('');
     let [subTitle, setSubTitle] = useState('');
     let [category, setCategory] = useState('');
@@ -12,9 +12,9 @@ export default function CreateBlog() {
     let [image, setImage] = useState('')
     let navigate = useNavigate();
     const cookie = new Cookies();
-    
+
     useEffect(() => {
-        if(cookie.get('userData') == undefined){
+        if (cookie.get('userData') == undefined) {
             navigate('/login');
             return null;
         }
@@ -33,13 +33,13 @@ export default function CreateBlog() {
     }
     let fileSelectedHandler = event => {
         const value = event.target.value.split('\\').pop();
-        
+
         setImage(value);
     }
-     const handleSubmit = async (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        
-        
+
+
         const blog = {
             title: title,
             subTitle: subTitle,
@@ -47,23 +47,23 @@ export default function CreateBlog() {
             image: image,
             description: description,
         }
-        
+
         try {
             const result = await fetch('http://localhost:5000/blogs', {
                 method: 'POST',
-                headers: {"Content-Type": "application/json", 'X-Authorization': cookie.get('userData')},
+                headers: { "Content-Type": "application/json", 'X-Authorization': cookie.get('userData') },
                 body: JSON.stringify(blog)
             })
-            
-            
-            if(result.ok){
-                
+
+
+            if (result.ok) {
+
                 return navigate('/');
             }
         } catch (error) {
             console.log(error);
         }
-        
+
     }
     return (
         <section className="edit-form">

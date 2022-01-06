@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import { Routes, Route, Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 export default function Blog(props) {
-    const cookie = new Cookies()
+    const cookie = new Cookies();
     const navigate = useNavigate();
     const addBookmark = () => {
         if(cookie.get('userData')){
@@ -11,7 +11,7 @@ export default function Blog(props) {
                 method: 'PATCH',
                 headers: { "Content-Type": "application/json", 'X-Authorization': cookie.get('userData') },
                 
-            })
+            });
         }else{
             navigate('/login');
             return;

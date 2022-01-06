@@ -8,7 +8,7 @@ export default function MainContent() {
     useEffect(() => {
         fetch('http://localhost:5000/blogs').then(res => res.json()).then(data => setBlogs(data))
 
-    }, [])
+    }, []);
 
     return (
         <div className="row row-main-content">

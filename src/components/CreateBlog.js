@@ -10,8 +10,8 @@ export default function CreateBlog() {
     let [category, setCategory] = useState('');
     let [description, setDescription] = useState('');
     let [image, setImage] = useState('')
-    let navigate = useNavigate()
-    const cookie = new Cookies()
+    let navigate = useNavigate();
+    const cookie = new Cookies();
     
     useEffect(() => {
         if(cookie.get('userData') == undefined){
@@ -20,21 +20,21 @@ export default function CreateBlog() {
         }
     }, [])
     let titleHandler = (event) => {
-        setTitle(event.target.value)
+        setTitle(event.target.value);
     }
     let subTitleHandler = (event) => {
-        setSubTitle(event.target.value)
+        setSubTitle(event.target.value);
     }
     let descriptionHandler = (event) => {
-        setDescription(event.target.value)
+        setDescription(event.target.value);
     }
     let categoryHandler = (event) => {
-        setCategory(event.target.value)
+        setCategory(event.target.value);
     }
     let fileSelectedHandler = event => {
-        const value = event.target.value.split('\\').pop()
+        const value = event.target.value.split('\\').pop();
         
-        setImage(value)
+        setImage(value);
     }
      const handleSubmit = async (event) => {
         event.preventDefault();
@@ -58,10 +58,10 @@ export default function CreateBlog() {
             
             if(result.ok){
                 
-                return navigate('/')
+                return navigate('/');
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
         
     }

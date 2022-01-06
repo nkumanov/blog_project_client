@@ -5,20 +5,22 @@ import { useNavigate } from 'react-router-dom';
 export default function Blog(props) {
     const cookie = new Cookies()
     const navigate = useNavigate();
+
     const removeBookmark = () => {
-        if(cookie.get('userData')){
+
+        if (cookie.get('userData')) {
             fetch(`http://localhost:5000/user/bookmark/${props.id}`, {
                 method: 'DELETE',
                 headers: { "Content-Type": "application/json", 'X-Authorization': cookie.get('userData') },
-                
+
             })
-            
-            
-        }else{
+
+            props.setChanger()
+        } else {
             navigate('/login');
             return;
         }
-        
+
     }
     return (
         <section className="content">
@@ -43,7 +45,7 @@ export default function Blog(props) {
                         <span><Link to={`/blogs/category/${props.category}`}>{props.category}</Link></span>
                     </div>
                     <button className="bookmark" title='remove from bookmarks' onClick={removeBookmark} ><i className="fas fa-trash-alt"></i></button>
-                    
+
                 </div>
             </div>
             <div className="blog-image">

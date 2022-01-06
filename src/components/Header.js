@@ -8,10 +8,10 @@ import SubHeader from './SubHeader';
 export default function Header() {
 
     const navigate = useNavigate();
-    const cookie = new Cookies()
+    const cookie = new Cookies();
     const logout = () => {
         cookie.remove('userData');
-        navigate('/')
+        navigate('/');
     }
     return (
         <>

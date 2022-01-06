@@ -1,11 +1,11 @@
 import React from 'react';
 import BookmarkBlog from './BookmarkBlog';
-import {Route, useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
 export default function Bookmarks() {
     const [blogs, setBlogs] = useState([]);
-    const [change, setChange] = useState()
+    const [change, setChange] = useState();
     const cookie = new Cookies();
     let navigate = useNavigate();
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function Bookmarks() {
             navigate('/login');
             return null;
         }
-    }, [])
+    }, []);
     useEffect(async () => {
         try {
             let response = await fetch('http://localhost:5000/user/bookmarked', {
@@ -29,10 +29,10 @@ export default function Bookmarks() {
         }
 
 
-    }, [change])
+    }, [change]);
 
     const deletedBlog = () => {
-        setChange(oldState => !oldState)
+        setChange(oldState => !oldState);
     }
 
     return (

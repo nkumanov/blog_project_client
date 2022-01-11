@@ -102,7 +102,11 @@ export default function CreateBlog() {
                 </div>
                 <div className="form-element">
                     <p>Image: </p>
-                    <label htmlFor="imageUrl"><input onChange={fileSelectedHandler} type="file" id="image" name="image" placeholder="image" /></label>
+                    <label htmlFor="image">
+                        Select image
+                        <input onChange={fileSelectedHandler} type="file" id="image" name="image" placeholder="image" />
+
+                    </label>
 
                 </div>
                 <div className="form-element">

@@ -295,6 +295,20 @@ a{
     flex-direction: column;
     margin: 10px 0 10px 0;
 }
+#category{
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 5px;
+}
+#image{
+    display: none;
+}
+label[for='image']{
+    border: 1px solid lightgrey;
+    width: fit-content;
+    padding: 5px 5px;
+    border-radius: 100rem;
+}
 label[for="category"],label[for="description"]{
     border-bottom: none;
 }

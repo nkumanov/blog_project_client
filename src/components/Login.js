@@ -57,13 +57,17 @@ export default function Login() {
                         <form onSubmit={handleForm}>
                             <div className="form-element">
                                 <p>Username: </p>
-                                <label htmlFor="username"><i className="fas fa-user"></i><input type="text" onChange={(e) => setUsername(e.target.value)} id="username" name="username"
+                                <label htmlFor="username">
+                                    <i className="fas fa-user"></i>
+                                    <input type="text" onChange={(e) => setUsername(e.target.value)} id="username" name="username"
                                     placeholder="Username" /></label>
 
                             </div>
                             <div className="form-element">
                                 <p>Password: </p>
-                                <label htmlFor="password"><i className="fas fa-lock"></i><input type="password" onChange={(e) => setPassword(e.target.value)} id="password" name="password"
+                                <label htmlFor="password">
+                                    <i className="fas fa-lock"></i>
+                                    <input type="password" onChange={(e) => setPassword(e.target.value)} id="password" name="password"
                                     placeholder="Password" /></label>
 
                             </div>

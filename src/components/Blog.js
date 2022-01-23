@@ -44,7 +44,7 @@ export default function Blog(props) {
                 </div>
             </div>
             <div className="blog-image">
-                <span className="example"><a href="/"></a></span>
+            <span className="example"><Link to={'/blog/' + props.id}></Link></span>
                 <img src={`http://localhost:5000/uploads/${props.blogImage}`} alt="" srcSet="" />
             </div>
         </section>

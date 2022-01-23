@@ -79,11 +79,11 @@ a{
 }
 
 .bl-button a{
-    border: 2px solid black;
+    
     padding: 8px;
-    color: white;
+    color: black;
     border-radius: 100px;
-    background: black;
+    
 }
 
 .jumbotron{

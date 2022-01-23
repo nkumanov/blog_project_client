@@ -40,10 +40,14 @@ export default function Detail() {
                         </article>
                         <article className="blog-author">
                             <div className="left-side">
+                                
                                 <img src={`http://localhost:5000/uploads/${blog.image}`} alt="" />
                                 <p>{blog.author}</p>
+                                
                                 <span>{blog.createdAt}</span>
                                 <span>{blog.readTime} {blog.readTime > 1 ? 'minutes' : 'minute'} read</span>
+                                
+                                
                             </div>
                             <div className="right-side">
                                 <Link className="bookmark" to=""><i className="fab fa-facebook-square"></i></Link>

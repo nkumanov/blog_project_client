@@ -1,6 +1,8 @@
 
 import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
+import Cookies from 'universal-cookie'
+
 
 import Header from './components/Header';
 import SubHeader from './components/SubHeader';
@@ -9,19 +11,21 @@ import About from './components/About';
 import Register from './components/Register'
 import Login from './components/Login'
 import CategoryBlogs from './components/CategoryBlogs'
-
 import Detail from './components/Detail'
 import CreateBlog from './components/CreateBlog';
 import Bookmarks from './components/Bookmarks';
-function App() {
 
+
+function App() {
+  
 
   return (
     <>
       <Header />
       
+      
       <Routes>
-        <Route path='/' element={<MainContent />} />
+        <Route path='/' element={<><MainContent /></> } />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/bookmarks' element={<Bookmarks />} />
